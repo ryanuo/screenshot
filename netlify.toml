@@ -1,0 +1,12 @@
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["puppeteer-core", "@sparticuz/chromium"]
+
+[functions."screenshot"]
+  timeout = 26   # 最大 60 秒
+  memory = 1536  # 内存上限 1.5GB（puppeteer比较吃内存）
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
