@@ -8,9 +8,13 @@ async function getBrowser() {
 
   _browser = await launch({
     args: chromium.args,
-    defaultViewport: chromium.defaultViewport,
+    defaultViewport: {
+      width: 1280,
+      height: 720,
+      deviceScaleFactor: 2,
+    },
     executablePath: await chromium.executablePath(),
-    headless: chromium.headless,
+    headless: true,
   });
 
   return _browser;
