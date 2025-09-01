@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
       {
         width: req.query.width ? Number(req.query.width) : 1280,
         height: req.query.height ? Number(req.query.height) : 720,
-        returnType: 'buffer',
+        returnType: req.query.returnType || 'buffer',
       },
     )
     res.setHeader('Content-Type', 'image/png')
