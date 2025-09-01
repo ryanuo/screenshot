@@ -1,4 +1,4 @@
-import { getScreenshot } from '../_lib/puppeteer'
+import { getScreenshot } from '../lib/puppeteer'
 // or alternatively use Playwright
 // import { getScreenshot } from "./_lib/playwright";
 module.exports = async (req, res) => {

@@ -1,4 +1,4 @@
-import { getScreenshot } from '../../_lib/puppeteer'
+import { getScreenshot } from '../../lib/puppeteer'
 
 function checkUrl(string: string) {
   try {
