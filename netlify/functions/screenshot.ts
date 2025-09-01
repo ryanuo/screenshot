@@ -33,8 +33,7 @@ export async function handler(event: any) {
         'Content-Type': 'image/png',
         'Cache-Control': 'public, immutable, no-transform, s-maxage=86400, max-age=86400',
       },
-      body: file.toString(),
-      isBase64Encoded: true,
+      body: file,
     }
   }
   catch (error) {
