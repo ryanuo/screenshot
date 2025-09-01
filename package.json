@@ -1,17 +1,23 @@
 {
   "name": "screenshot",
   "version": "1.0.0",
+  "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad",
   "description": "Serverless API to take screenshots of websites with Puppeteer.",
-  "dependencies": {
-    "@sparticuz/chromium": "138.0.2",
-    "playwright-core": "^1.44.0",
-		"puppeteer-core": "24.16.2"
-  },
-  "devDependencies": {
-    "typescript": "5.4.5"
-  },
   "engines": {
     "node": "20.x"
   },
-  "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad"
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "dependencies": {
+    "@sparticuz/chromium": "138.0.2",
+    "playwright-core": "^1.44.0",
+    "puppeteer-core": "24.16.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^5.2.1",
+    "eslint": "^9.34.0",
+    "typescript": "5.4.5"
+  }
 }
