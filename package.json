@@ -7,8 +7,7 @@
   },
   "scripts": {
     "lint": "eslint",
-    "lint:fix": "eslint --fix",
-    "build": "npm i && echo 'no build step needed'"
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
     "@sparticuz/chromium": "138.0.2",
