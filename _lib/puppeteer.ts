@@ -49,5 +49,6 @@ export async function getScreenshot(url: string, options: ScreenshotOptions =
     return data
   }
 
-  return buffer
+  // eslint-disable-next-line node/prefer-global/buffer
+  return buffer as Buffer | string
 }
