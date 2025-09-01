@@ -1,31 +1,36 @@
-import { launch, Page } from "puppeteer-core";
+import { launch, Browser, Page } from "puppeteer-core";
 import chromium from "@sparticuz/chromium";
 
-let _page: Page | null;
+let _browser: Browser | null = null;
 
-async function getPage() {
-  if (_page) return _page;
+async function getBrowser() {
+  if (_browser) return _browser;
 
-  const browser = await launch({
+  _browser = await launch({
     args: chromium.args,
     defaultViewport: chromium.defaultViewport,
     executablePath: await chromium.executablePath(),
     headless: chromium.headless,
   });
 
-  _page = await browser.newPage();
-
-  return _page;
+  return _browser;
 }
 
-export async function getScreenshot(url, width, height) {
-  const page = await getPage();
-  await page.goto(url);
+export async function getScreenshot(url: string, width = 1280, height = 720) {
+  const browser = await getBrowser();
+  const page: Page = await browser.newPage();
+
   await page.setViewport({
-    width: Number(width) || 1280,
-    height: Number(height) || 720,
+    width: Number(width),
+    height: Number(height),
     deviceScaleFactor: 2,
   });
-  const file = await page.screenshot();
-  return file;
+
+  await page.goto(url, { waitUntil: "networkidle2", timeout: 30000 });
+
+  const buffer = await page.screenshot({ type: "png" });
+
+  await page.close(); // Serverless 中避免资源泄漏
+
+  return buffer;
 }
