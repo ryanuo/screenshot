@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "build": "echo 'no build step needed'"
+    "build": "pnpm i && echo 'no build step needed'"
   },
   "dependencies": {
     "@sparticuz/chromium": "138.0.2",
